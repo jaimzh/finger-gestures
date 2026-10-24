@@ -2,5 +2,5 @@
   "installCommand": "npm ci --include=dev",
   "buildCommand": "npm run build:demo",
   "outputDirectory": "demo-dist",
-  "framework": "vite"
+  "framework": null
 }
