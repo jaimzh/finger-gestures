@@ -1,6 +1,6 @@
 {
   "installCommand": "npm ci --include=dev",
   "buildCommand": "npm run build:demo",
-  "outputDirectory": "demo/demo-dist",
+  "outputDirectory": "demo-dist",
   "framework": "vite"
 }

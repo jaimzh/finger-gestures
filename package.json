@@ -18,7 +18,7 @@
   "files": ["dist", "README.md", "LICENSE"],
   "scripts": {
     "dev": "vite demo --host",
-    "build:demo": "vite build demo --outDir demo-dist",
+    "build:demo": "vite build demo --outDir ../demo-dist",
     "build": "tsup",
     "test": "vitest run",
     "prepublishOnly": "npm run test && npm run build"
