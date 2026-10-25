@@ -1,0 +1,139 @@
+:root {
+  --bg: #fff;
+  --ink: #111;
+  --muted: #6b6b6b;
+  --line: #e6e6e6;
+  --accent: #0c7868;
+  --code: #1b211e;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.logo {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+pre {
+  background: var(--code);
+  color: #f2f5f3;
+  border: 1px solid #2d3933;
+  border-radius: 12px;
+  font: 13px/1.7 var(--mono);
+}
+pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font: inherit;
+}
+code {
+  background-color: #f5f5f5;
+}
+pre .k {
+  color: #c4a1ff;
+}
+pre .f {
+  color: #f0b86e;
+}
+pre .s {
+  color: #7fd9a8;
+}
+pre .n {
+  color: #ff8fb1;
+}
+pre .c,
+pre .prompt {
+  color: #91a29a;
+}
+pre .x {
+  color: #4cc3ae;
+}
+
+/* Landing page: one column, restrained type, and a clear gap before the demo. */
+body:has(.site-header) .wrap {
+  width: min(720px, calc(100% - 48px));
+}
+.site-header {
+  align-items: center;
+  padding-top: 32px;
+  gap: 24px;
+}
+.site-header nav {
+  gap: 24px;
+  font-size: 13px;
+}
+.site-header .brand {
+  font-size: 15px;
+  white-space: nowrap;
+}
+.intro {
+  padding-top: 88px;
+}
+.intro h1 {
+  margin: 0 0 18px;
+  font-size: clamp(40px, 6.5vw, 64px);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+.intro .lead {
+  margin: 0 0 20px;
+  max-width: 460px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+.docs-link {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 14px;
+  text-decoration: none;
+}
+.docs-link:hover {
+  text-decoration: underline;
+}
+.intro + .meta {
+  margin-top: 28px;
+  font-size: 12px;
+}
+#demo {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+#demo h2 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+#pad {
+  margin-top: 24px;
+  border-radius: 8px;
+}
+@media (max-width: 560px) {
+  .site-header {
+    flex-wrap: wrap;
+    gap: 18px;
+    padding-top: 24px;
+  }
+  .site-header nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .intro {
+    padding-top: 56px;
+  }
+  #demo {
+    margin-top: 44px;
+    padding-top: 24px;
+  }
+}

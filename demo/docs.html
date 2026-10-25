@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Docs · finger-gestures</title>
+    <link rel="stylesheet" href="./docs.css" />
+    <link rel="stylesheet" href="./theme.css" />
+  </head>
+  <body>
+    <header class="wrap top">
+      <a class="brand" href="./index.html"
+        ><svg class="logo" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M13.1 21c-2.3-1.5-3.8-4-3.8-7 0-1.5 1.2-2.8 2.7-2.8s2.7 1.3 2.7 2.8 1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7C20.3 9.4 16.6 5.7 12 5.7S3.8 9.4 3.8 14c0 1 .1 2 .3 3M8.5 20.3A10.9 10.9 0 0 1 6.5 14c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5M17.8 19.5c-.1 0-.2 0-.3 0a5.5 5.5 0 0 1-5.5-5.5M19.7 6.5A10.9 10.9 0 0 0 12 3 10.9 10.9 0 0 0 4.3 6.5"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          /></svg
+        >finger-gestures</a
+      >
+      <nav>
+        <a href="./index.html">Demo</a
+        ><a
+          href="https://www.npmjs.com/package/finger-gestures"
+          target="_blank"
+          rel="noreferrer"
+          >npm ↗</a
+        >
+      </nav>
+    </header>
+    <main class="wrap layout">
+      <aside class="side">
+        <a href="#quickstart">Quick start</a><a href="#handlers">Handlers</a
+        ><a href="#options">Options</a><a href="#recognition">Recognition</a>
+      </aside>
+      <article>
+        <div class="eyebrow">Documentation</div>
+        <h1>Touch interactions,<br />made predictable.</h1>
+        <p>
+          finger-gestures gives your web interface a small, typed vocabulary for
+          multi-finger taps and four-way swipes. It works with any element that
+          receives Pointer Events.
+        </p>
+        <section id="quickstart">
+          <h2>Quick start</h2>
+          <p>
+            Install the package, then pass an element and the gestures you want
+            to recognise.
+          </p>
+          <pre><code class="language-bash"><span class="x">npm install finger-gestures</span></code></pre>
+          <pre><code class="language-javascript"><span class="k">import</span> { fingerGestures } <span class="k">from</span> <span class="s">'finger-gestures'</span>
+
+<span class="k">const</span> stop = <span class="f">fingerGestures</span>(canvas, {
+  tap: {
+    <span class="n">2</span>: () =&gt; <span class="f">undo</span>(),
+    <span class="n">3</span>: () =&gt; <span class="f">redo</span>(),
+  },
+  swipe: {
+    <span class="n">3</span>: { up: openMenu, down: closeMenu },
+  },
+})
+
+<span class="c">// Remove listeners when the interaction ends.</span>
+<span class="f">stop</span>()</code></pre>
+          <div class="note">
+            <p>
+              Set <code>captureTouch: false</code> when the element should keep
+              its normal scrolling and zooming behaviour.
+            </p>
+          </div>
+        </section>
+        <section id="handlers">
+          <h2>Handlers</h2>
+          <p>
+            Tap handlers are keyed by finger count. Swipe handlers can be a
+            single function, or an object with a function for each direction.
+          </p>
+          <pre><code class="language-javascript"><span class="f">fingerGestures</span>(element, {
+  tap: { <span class="n">1</span>: onTap, <span class="n">2</span>: onUndo },
+  swipe: {
+    <span class="n">2</span>: (event) =&gt; console.<span class="f">log</span>(event.direction),
+    <span class="n">3</span>: { left: goBack, right: goForward },
+  },
+}, options)</code></pre>
+          <p>
+            Every handler receives an event with the finger count, timing,
+            position, and original pointer event. Swipe events also include
+            <code>direction</code>, <code>distance</code>,
+            <code>velocity</code>, <code>dx</code>, and <code>dy</code>.
+          </p>
+        </section>
+        <section id="options">
+          <h2>Options</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Option</th>
+                <th>Default</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>joinMs</code></td>
+                <td>180</td>
+                <td>Max time between fingers landing</td>
+              </tr>
+              <tr>
+                <td><code>tapMaxMs</code></td>
+                <td>350</td>
+                <td>Maximum tap duration</td>
+              </tr>
+              <tr>
+                <td><code>tapSlop</code></td>
+                <td>14</td>
+                <td>Maximum movement for a tap, in pixels</td>
+              </tr>
+              <tr>
+                <td><code>swipeMinDistance</code></td>
+                <td>48</td>
+                <td>Minimum average swipe distance</td>
+              </tr>
+              <tr>
+                <td><code>swipeMaxMs</code></td>
+                <td>800</td>
+                <td>Maximum swipe duration</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="recognition">
+          <h2>Recognition model</h2>
+          <p>
+            A gesture begins with the first finger and resolves when the last
+            finger lifts. Fingers must join within <code>joinMs</code>. Small
+            movement becomes a tap; clear, mostly one-axis movement becomes a
+            swipe.
+          </p>
+          <p>
+            Pinches, rotations, diagonals, scattered movement, late fingers, and
+            system-reserved gestures are rejected. Use
+            <code>onReject</code> while tuning to see exactly why an input was
+            ignored.
+          </p>
+        </section>
+      </article>
+    </main>
+    <footer class="wrap foot">
+      finger-gestures · MIT licensed ·
+      <a href="https://www.npmjs.com/package/finger-gestures"
+        >Published on npm</a
+      >
+    </footer>
+  </body>
+</html>

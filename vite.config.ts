@@ -6,5 +6,11 @@ export default defineConfig({
   build: {
     outDir: resolve(process.cwd(), 'demo-dist'),
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: resolve(process.cwd(), 'demo/index.html'),
+        docs: resolve(process.cwd(), 'demo/docs.html'),
+      },
+    },
   },
 })
