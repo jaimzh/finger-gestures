@@ -3,3 +3,4 @@ dist
 *.tgz
 demo/demo-dist
 /demo-dist/
+making-my-first-js-library.md

@@ -2,6 +2,8 @@
   "name": "finger-gestures",
   "version": "0.1.0",
   "description": "Multi-finger taps and swipes for the web, built on Pointer Events. Two-finger tap to undo, three-finger swipe up, four-finger tap: any finger count, any direction. Zero dependencies.",
+  "repository": { "type": "git", "url": "https://github.com/jaimzh/finger-gestures.git" },
+  "homepage": "https://finger-gestures.vercel.app/",
   "keywords": ["gesture", "touch", "tap", "swipe", "multi-touch", "multi-finger", "two-finger", "three-finger", "four-finger", "undo", "redo", "pointer-events"],
   "license": "MIT",
   "type": "module",

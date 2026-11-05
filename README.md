@@ -1,6 +1,18 @@
-# finger-gestures
+<div align="center">
+  <img src="./finger-gestures-logo.svg" alt="finger-gestures logo" width="96" />
+  <h1>finger-gestures</h1>
+  <p>Multi-finger taps and swipes for the web.</p>
+  <p>
+    <a href="https://finger-gestures.vercel.app/"><img src="https://img.shields.io/badge/demo-try%20it-0c7868" alt="Try the live demo" /></a>
+    <a href="https://www.npmjs.com/package/finger-gestures"><img src="https://img.shields.io/npm/v/finger-gestures?label=npm" alt="npm version" /></a>
+    <a href="https://www.npmjs.com/package/finger-gestures"><img src="https://img.shields.io/npm/dm/finger-gestures?label=downloads" alt="npm monthly downloads" /></a>
+    <a href="https://github.com/jaimzh/finger-gestures"><img src="https://img.shields.io/badge/source-GitHub-181717?logo=github" alt="View source on GitHub" /></a>
+  </p>
+</div>
 
-Multi-finger taps and swipes for the web, built on Pointer Events. Two-finger tap to undo, three-finger swipe up, four-finger tap: any finger count, any direction. About 1.3 KB gzipped, zero dependencies, typed.
+Two-finger tap to undo, three-finger swipe up, four-finger tap, or any finger count and direction you need. About 1.3 KB gzipped, zero dependencies, and fully typed.
+
+Explore the gestures in your browser, or install the package and add multi-finger taps and swipes to your own app.
 
 ```ts
 import { fingerGestures } from 'finger-gestures'
@@ -93,6 +105,10 @@ npm run dev      # demo page, also served on your LAN so you can open it on a ph
 npm test
 npm run build
 ```
+
+## Behind the project
+
+Read the [story behind finger-gestures](https://jaimz.is-a.dev/dumps/making-my-first-library).
 
 ## License
 
