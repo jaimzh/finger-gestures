@@ -1,10 +1,26 @@
 {
   "name": "finger-gestures",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Multi-finger taps and swipes for the web, built on Pointer Events. Two-finger tap to undo, three-finger swipe up, four-finger tap: any finger count, any direction. Zero dependencies.",
-  "repository": { "type": "git", "url": "https://github.com/jaimzh/finger-gestures.git" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaimzh/finger-gestures.git"
+  },
   "homepage": "https://finger-gestures.vercel.app/",
-  "keywords": ["gesture", "touch", "tap", "swipe", "multi-touch", "multi-finger", "two-finger", "three-finger", "four-finger", "undo", "redo", "pointer-events"],
+  "keywords": [
+    "gesture",
+    "touch",
+    "tap",
+    "swipe",
+    "multi-touch",
+    "multi-finger",
+    "two-finger",
+    "three-finger",
+    "four-finger",
+    "undo",
+    "redo",
+    "pointer-events"
+  ],
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
@@ -13,11 +29,21 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
-      "require": { "types": "./dist/index.d.cts", "default": "./dist/index.cjs" }
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "vite demo --host",
     "build:demo": "vite build --config vite.config.ts",
